@@ -1,0 +1,29 @@
+#include<stdio.h>
+#include<string.h>
+int main(){
+ 
+     char arr[30],sdel,edel;
+
+	      
+     int i;
+     printf("Enter the charecters that represent Starting delimeter & Ending delimeter : ");
+     scanf("%c\n%c",&sdel,&edel);
+    
+     
+     printf("Enter the message : \n");
+     scanf("%s",arr);
+     printf("%c  ",sdel);
+    for( i=0;i<strlen(arr);i++){
+    	if(arr[i]==sdel ){
+    		printf("Esc ");
+		}
+		else if(arr[i]==edel){
+		    printf("Esc ");
+		}
+    	printf(" %c ",arr[i]);
+	}
+	printf("  %c",edel);
+        
+        return 0;
+        
+    }
