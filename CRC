@@ -1,0 +1,55 @@
+#include <stdio.h>
+#include <string.h>
+int main() {
+    	int i,j,keylength,msglength;
+    	char ipt[100], key[30],temp[30],quotnt[100],rem[30],key1[30];
+    
+    	printf("Enter Data: ");
+	    scanf("%s", ipt);
+    	printf("Enter Key: ");
+	    scanf("%s", key);
+
+    	keylength = strlen(key);
+    	msglength = strlen(ipt);
+    	strcpy(key1,key);
+    	for (i = 0; i < keylength-1; i++) {
+    		ipt[msglength+i] = '0';
+    	}
+    	for (i = 0; i < keylength; i++)
+    	 temp[i] = ipt[i];
+    	for (i = 0;i < msglength; i++) {
+    		quotnt[i] = temp[0];
+    		if (quotnt[i] == '0')
+	    		for (j = 0; j < keylength; j++)
+	  			     key[j] = '0';
+		else
+    			for (j=0;j<keylength;j++)
+    		 		key[j]=key1[j];
+    		for (j = keylength - 1 ; j > 0; j--) {
+    			if(temp[j]==key[j])
+    				rem[j-1]='0';
+			    else
+    				rem[j-1]='1';
+    		}
+    		rem[keylength-1] = ipt[i+keylength];
+    		strcpy(temp,rem);
+    	}
+    	strcpy(rem,temp);
+    	printf("\nQuotient is: ");
+    	for (i = 0; i < msglength; i++) {
+	       	printf("%c",quotnt[i]);
+	}
+    	printf("\nRemainder is: ");
+    	for (i = 0;i < keylength-1; i++) {
+		printf("%c",rem[i]);
+	}
+    	printf("\nFinal data is: ");
+    	for (i = 0;i < msglength; i++) {
+		printf("%c",ipt[i]);
+	}
+    	for (i = 0;i < keylength-1; i++) {
+		printf("%c",rem[i]);
+	}
+	printf("\n");
+	return 0;
+    }
